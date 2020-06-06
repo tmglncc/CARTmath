@@ -1,0 +1,151 @@
+---
+title: |
+  ![](cart_black.png){width=1.90in}  
+  **Report**
+header-includes: \usepackage{xcolor}
+output: pdf_document
+papersize: a4
+params:
+  time: NA
+  tumor: NA
+  type: NA
+  immuno: NA
+  challenge: NA
+  r: NA
+  gamma: NA
+  b: NA
+  phi: NA
+  mit: NA
+  alpha: NA
+  rho: NA
+  mim: NA
+  theta: NA
+  epsilon: NA
+  deltat: NA
+  Mprint: NA
+---
+
+```{r include=FALSE}
+library("shiny")
+library("shinydashboard")
+library("htmltools")
+library("bsplus")
+library("ggplot2")
+library("plotly")
+library("shinydashboardPlus")
+library("numbers")
+library("shinyjs")
+library("DT")
+library("knitr")
+```
+
+# **\textcolor{blue}{Simulated mathematical model}**
+
+$$\dfrac{d C_T}{d t} = \phi C_T - \rho C_T- \mu_T C_T + \theta T C_M - \alpha T C_T$$
+$$\dfrac{d C_M}{d t} = \epsilon \rho  C_T - \theta T C_M - \mu_M C_M$$
+$$\dfrac{d T}{d t} = r T(1-bT)  - \gamma T C_T$$
+
+```{r include=FALSE}
+shiny::setProgress(value = 0.25, detail = "25%")
+```
+
+# **\textcolor{blue}{Setup parameters}**
+
+1. **Maximum simulation time**: `r params$time` days
+2. **Tumor cell number at day 0 (beginning of the simulation)**: `r params$tumor` cells
+3. **CAR T Immunotherapy:**
+    * `r params$type` dose
+    * `r format(params$immuno, scientific=TRUE)`
+4. **Challenge:** `r params$challenge`
+5. **Advanced parameters:**
+    * $r$ = `r params$r` $day^{-1}$
+    * $\gamma$ = `r params$gamma` $(cell.day)^{-1}$
+    * $b$ = `r params$b` $cell^{-1}$
+    * $\phi$ = `r params$phi` $day^{-1}$
+    * $\mu_T$ = `r params$mit` $day^{-1}$
+    * $\alpha$ = `r params$alpha` $(cell.day)^{-1}$
+    * $\rho$ = `r params$rho` $day^{-1}$
+    * $\mu_M$ = `r params$mim` $day^{-1}$
+    * $\theta$ = `r params$theta` $(cell.day)^{-1}$
+    * $\epsilon$ = `r params$epsilon` (dimensionless)
+    * $\Delta t$ = `r params$deltat` $day$
+    
+```{r include=FALSE}
+shiny::setProgress(value = 0.5, detail = "50%")
+```
+  
+# **\textcolor{blue}{Graphic}**
+
+```{r include=FALSE, warning=FALSE, out.width="100%"}
+#Plot
+x = params$Mprint[,1]
+values = cbind(params$Mprint[,2], params$Mprint[,3], params$Mprint[,4])
+plot.dat = data.frame(values, x)
+
+ax <- list(
+  overlaying = "x",
+  side = "top",
+  showgrid = TRUE,
+  showline = TRUE,
+  showticklabels = FALSE
+)
+
+ay <- list(
+  overlaying = "y",
+  side = "right",
+  title = "<b>T (#cells) </b>",
+  exponentformat = "power",
+  showgrid = FALSE,
+  showline = TRUE,
+  ticks = 'outside'
+)
+
+fig <- plot_ly(plot.dat, x = ~x, width = 950, height = 600)
+fig <- fig %>% add_lines(y = ~values[,1], name = 'CAR T eff', type = 'scatter', mode = 'lines', line = list(color = 'blue', width=2))
+fig <- fig %>% add_lines(y = ~values[,2], name = 'CAR T mem', type = 'scatter', mode = 'lines', line = list(color = 'forestgreen', width=2))
+fig <- fig %>% add_lines(y = ~values[,3], name = 'T', type = 'scatter', mode = 'lines', line = list(color = 'red', width=2), xaxis = 'x2', yaxis = 'y2')
+fig <- fig %>% layout(title = "",
+                      xaxis = list(title = "<b>Time (days)</b>", showgrid = TRUE, showline = TRUE),
+                      yaxis = list(title = "<b> CAR T eff, CAR T mem (#cells) </b>", exponentformat = "power", showgrid = TRUE, showline = TRUE, ticks = 'outside'),
+                      xaxis2 = ax,
+                      yaxis2 = ay,
+                      legend = list(title = list(text='<b>Cell Type: </b>'), orientation = 'h', x = 0.0, y = 1.1),
+                      margin = list(b = 50, l = 80, r = 80))
+
+tmpFile <- tempfile(fileext = ".pdf")
+export(fig, file = tmpFile)
+```
+
+![](`r tmpFile`)
+
+```{r include=FALSE}
+shiny::setProgress(value = 0.75, detail = "75%")
+```
+
+# **\textcolor{blue}{Summarized table}**
+
+```{r echo=FALSE, results='asis'}
+summarizeTable <- function(maxtime, Mprint) {
+  Mprint.df <- data.frame()
+  for (i in 0:maxtime) {
+    row_numbers <- which(Mprint[,1] >= i & Mprint[,1] < i+1)
+    if (!all(is.na(row_numbers)))
+      Mprint.df <- rbind(Mprint.df, Mprint[row_numbers[1],])
+  }
+  if (nrow(Mprint.df) == maxtime)
+    Mprint.df <- rbind(Mprint.df, Mprint[nrow(Mprint),])
+  
+  return(Mprint.df)
+}
+    
+Mprint.df <- summarizeTable(params$time, params$Mprint)
+
+Mprint.df[,1] <- round(Mprint.df[,1], digits = 0)
+
+colnames(Mprint.df) <- c("Time (days)", "Effector CAR T (# cells)", "Memory CAR T (# cells)", "Tumor (# cells)")
+kable(Mprint.df)
+```
+
+```{r include=FALSE}
+shiny::setProgress(value = 1.0, detail = "100%")
+```
