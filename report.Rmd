@@ -101,8 +101,8 @@ ay <- list(
 )
 
 fig <- plot_ly(plot.dat, x = ~x, width = 950, height = 600)
-fig <- fig %>% add_lines(y = ~values[,1], name = 'CAR T eff', type = 'scatter', mode = 'lines', line = list(color = 'blue', width=2))
-fig <- fig %>% add_lines(y = ~values[,2], name = 'CAR T mem', type = 'scatter', mode = 'lines', line = list(color = 'forestgreen', width=2))
+fig <- fig %>% add_lines(y = ~values[,1], name = 'CAR T eff', type = 'scatter', mode = 'lines', line = list(color = 'forestgreen', width=2))
+fig <- fig %>% add_lines(y = ~values[,2], name = 'CAR T mem', type = 'scatter', mode = 'lines', line = list(color = 'blue', width=2))
 fig <- fig %>% add_lines(y = ~values[,3], name = 'T', type = 'scatter', mode = 'lines', line = list(color = 'red', width=2), xaxis = 'x2', yaxis = 'y2')
 fig <- fig %>% layout(title = "",
                       xaxis = list(title = "<b>Time (days)</b>", showgrid = TRUE, showline = TRUE),
