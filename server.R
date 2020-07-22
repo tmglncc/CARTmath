@@ -2737,9 +2737,9 @@ server <- function(input, output, session) {
     })
   })
   
-  #Commands related to plot of the graphics in "Graphics" item
+  #Commands related to plot of the graphs in "Graphs" item
   #Plot of the effector CAR T cells
-  output$graphic1 <- renderPlotly({
+  output$graph1 <- renderPlotly({
     if (v$doSimulation == FALSE)
       return()
     
@@ -2867,13 +2867,13 @@ server <- function(input, output, session) {
       }
     }
   })
-  output$graphic1Text <- renderText({
+  output$graph1Text <- renderText({
     if (v$doSimulation == FALSE)
       "Run a simulation to view the plot of the effector CAR T cells."
   })
   
   #Plot of the memory CAR T cells
-  output$graphic2 <- renderPlotly({
+  output$graph2 <- renderPlotly({
     if (v$doSimulation == FALSE)
       return()
     
@@ -3002,13 +3002,13 @@ server <- function(input, output, session) {
       }
     }
   })
-  output$graphic2Text <- renderText({
+  output$graph2Text <- renderText({
     if (v$doSimulation == FALSE)
       "Run a simulation to view the plot of the memory CAR T cells."
   })
   
   #Plot of the tumor cells
-  output$graphic3 <- renderPlotly({
+  output$graph3 <- renderPlotly({
     if (v$doSimulation == FALSE)
       return()
     
@@ -3137,13 +3137,13 @@ server <- function(input, output, session) {
       }
     }
   })
-  output$graphic3Text <- renderText({
+  output$graph3Text <- renderText({
     if (v$doSimulation == FALSE)
       "Run a simulation to view the plot of the tumor cells."
   })
   
   #Plot of the all population cells
-  output$graphic4 <- renderPlotly({
+  output$graph4 <- renderPlotly({
     if (v$doSimulation == FALSE)
       return()
     
@@ -3424,7 +3424,7 @@ server <- function(input, output, session) {
       }
     }
   })
-  output$graphic4Text <- renderText({
+  output$graph4Text <- renderText({
     if (v$doSimulation == FALSE)
       "Run a simulation to view the plot of the all population cells."
   })

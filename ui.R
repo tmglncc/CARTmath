@@ -21,8 +21,8 @@ ui <- dashboardPage(
       menuItem("SETUP",
                tabName = "setup"),
       menuItem(
-        "Graphics",
-        tabName = "graphics",
+        "Graphs",
+        tabName = "graphs",
         icon = icon("chart-area")
       ),
       menuItem("Table",
@@ -214,9 +214,9 @@ ui <- dashboardPage(
                   uiOutput("panel")
                 )
               )),
-      #Determining the contents of the "Graphics" item
+      #Determining the contents of the "Graphs" item
       tabItem(
-        tabName = "graphics",
+        tabName = "graphs",
         fluidRow(column(1),
                  column(
                    width = 10,
@@ -271,7 +271,7 @@ ui <- dashboardPage(
                          ) %>%
                            shinyInput_label_embed(
                              shiny_iconlink("question-circle") %>%
-                               bs_embed_popover(title = "Sets the line color of the effector CAR T cell curve of both graphics with only effector CAR T cells and with all cell populations.",
+                               bs_embed_popover(title = "Sets the line color of the effector CAR T cell curve of both graphs with only effector CAR T cells and with all cell populations.",
                                                 placement = "left")
                            ),
                          numericInput(
@@ -281,7 +281,7 @@ ui <- dashboardPage(
                          ) %>%
                            shinyInput_label_embed(
                              shiny_iconlink("question-circle") %>%
-                               bs_embed_popover(title = "Sets the line width of the effector CAR T cell curve of both graphics with only effector CAR T cells and with all cell populations.",
+                               bs_embed_popover(title = "Sets the line width of the effector CAR T cell curve of both graphs with only effector CAR T cells and with all cell populations.",
                                                 placement = "left")
                            ),
                          selectInput(
@@ -297,8 +297,8 @@ ui <- dashboardPage(
                            ),
                        ),
                        column(width = 8,
-                              h4(textOutput("graphic1Text")),
-                              plotlyOutput('graphic1'))
+                              h4(textOutput("graph1Text")),
+                              plotlyOutput('graph1'))
                      )
                    ),
                  ),
@@ -357,7 +357,7 @@ ui <- dashboardPage(
                          ) %>%
                            shinyInput_label_embed(
                              shiny_iconlink("question-circle") %>%
-                               bs_embed_popover(title = "Sets the line color of the effector CAR T cell curve of both graphics with only memory CAR T cells and with all cell populations.",
+                               bs_embed_popover(title = "Sets the line color of the effector CAR T cell curve of both graphs with only memory CAR T cells and with all cell populations.",
                                                 placement = "left")
                            ),
                          numericInput(
@@ -367,7 +367,7 @@ ui <- dashboardPage(
                          ) %>%
                            shinyInput_label_embed(
                              shiny_iconlink("question-circle") %>%
-                               bs_embed_popover(title = "Sets the line width of the effector CAR T cell curve of both graphics with only memory CAR T cells and with all cell populations.",
+                               bs_embed_popover(title = "Sets the line width of the effector CAR T cell curve of both graphs with only memory CAR T cells and with all cell populations.",
                                                 placement = "left")
                            ),
                          selectInput(
@@ -383,8 +383,8 @@ ui <- dashboardPage(
                            ),
                        ),
                        column(width = 8,
-                              h4(textOutput("graphic2Text")),
-                              plotlyOutput('graphic2'))
+                              h4(textOutput("graph2Text")),
+                              plotlyOutput('graph2'))
                      )
                    ),
                  ),
@@ -443,7 +443,7 @@ ui <- dashboardPage(
                          ) %>%
                            shinyInput_label_embed(
                              shiny_iconlink("question-circle") %>%
-                               bs_embed_popover(title = "Sets the line color of the tumor cell curve of both graphics with only tumor cells and with all cell populations.",
+                               bs_embed_popover(title = "Sets the line color of the tumor cell curve of both graphs with only tumor cells and with all cell populations.",
                                                 placement = "left")
                            ),
                          numericInput(
@@ -453,7 +453,7 @@ ui <- dashboardPage(
                          ) %>%
                            shinyInput_label_embed(
                              shiny_iconlink("question-circle") %>%
-                               bs_embed_popover(title = "Sets the line width of the tunor cell curve of both graphics with only tumor cells and with all cell populations.",
+                               bs_embed_popover(title = "Sets the line width of the tunor cell curve of both graphs with only tumor cells and with all cell populations.",
                                                 placement = "left")
                            ),
                          selectInput(
@@ -469,8 +469,8 @@ ui <- dashboardPage(
                            ),
                        ),
                        column(width = 8,
-                              h4(textOutput("graphic3Text")),
-                              plotlyOutput('graphic3'))
+                              h4(textOutput("graph3Text")),
+                              plotlyOutput('graph3'))
                      )
                    ),
                  ),
@@ -659,8 +659,8 @@ ui <- dashboardPage(
                          )
                        ),
                        column(width = 8,
-                              h4(textOutput("graphic4Text")),
-                              plotlyOutput('graphic4'))
+                              h4(textOutput("graph4Text")),
+                              plotlyOutput('graph4'))
                      )
                    )
                  ))
