@@ -55,7 +55,7 @@ You can run directly in RStudio by clicking on **Run App** button.
 
 5. In CARTmath app, follow **Manual** for further instructions.
 
-## Citation
+## Cite as
 
 1. E. A. Paixão, G. T. Naozuka, A. M. P. Valli, B. de J. Rodrigues, L. R. C. Barros, R. C. Almeida, CAR**T***math*. Available at [https://github.com/tmglncc/CARTmath](https://github.com/tmglncc/CARTmath) (2020)
 
