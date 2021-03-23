@@ -38,6 +38,11 @@ $ cd CARTmath/
 > webshot::install_phantomjs()
 ```
 
+3. For Linux system, install xclip via terminal by the command:
+```
+$ sudo apt-get install xclip
+```
+
 ## Running CARTmath
 
 1. Open the **app.R** file in R or RStudio Desktop.
@@ -56,7 +61,5 @@ You can run directly in RStudio by clicking on **Run App** button.
 5. In CARTmath app, follow **Manual** for further instructions.
 
 ## Cite as
-
-1. E. A. Paixão, G. T. Naozuka, A. M. P. Valli, B. de J. Rodrigues, L. R. C. Barros, R. C. Almeida, CAR**T***math*. Available at [https://github.com/tmglncc/CARTmath](https://github.com/tmglncc/CARTmath) (2020)
-
-2. tmglncc. (2021, January 19). tmglncc/CARTmath: CARTmath v1.0 (Version v1.0). Zenodo. [http://doi.org/10.5281/zenodo.4450377](http://doi.org/10.5281/zenodo.4450377)
+                              
+CAR**T***math*. Version 1.0. Petrópolis: Paixão, E.A.; Naozuka, G.T.; Valli, A.M.P.; Barros, L.R.C.; Almeida, R.C., 2020. Available at: [https://github.com/tmglncc/CARTmath](https://github.com/tmglncc/CARTmath), 2020. Access in: february 28th, 2020. doi: [http://doi.org/10.5281/zenodo.4450377](http://doi.org/10.5281/zenodo.4450377)
