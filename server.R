@@ -442,30 +442,26 @@ server <- function(input, output, session) {
     feedbackDanger("phi", phi.cond, "Value must be greater than 0.0.")
     req(!phi.cond, cancelOutput = TRUE)
     
-    mit.cond <- is.na(input$mit) || input$mit < 0.0
-    feedbackDanger("mit", mit.cond, "Value must be greater than 0.0.")
-    req(!mit.cond, cancelOutput = TRUE)
+    rho.cond <- is.na(input$rho) || input$rho < 0.0
+    feedbackDanger("rho", rho.cond, "Value must be greater than 0.0.")
+    req(!rho.cond, cancelOutput = TRUE)
     
     alpha.cond <- is.na(input$alpha)
     feedbackDanger("alpha", alpha.cond, "Value must be specified.")
     req(!alpha.cond, cancelOutput = TRUE)
     
-    rho.cond <- is.na(input$rho) || input$rho < 0.0
-    feedbackDanger("rho", rho.cond, "Value must be greater than 0.0.")
-    req(!rho.cond, cancelOutput = TRUE)
-    
-    mim.cond <- is.na(input$mim) || input$mim < 0.0
-    feedbackDanger("mim", mim.cond, "Value must be greater than 0.0.")
-    req(!mim.cond, cancelOutput = TRUE)
-    
-    theta.cond <- is.na(input$theta) || input$theta < 0.0
-    feedbackDanger("theta", theta.cond, "Value must be greater than 0.0.")
-    req(!theta.cond, cancelOutput = TRUE)
-    
     epsilon.cond <- is.na(input$epsilon) || input$epsilon < 0.0
     feedbackDanger("epsilon", epsilon.cond, "Value must be greater than 0.0.")
     req(!epsilon.cond, cancelOutput = TRUE)
     
+    mi.cond <- is.na(input$mi) || input$mi < 0.0
+    feedbackDanger("mi", mi.cond, "Value must be greater than 0.0.")
+    req(!mi.cond, cancelOutput = TRUE)
+    
+    theta.cond <- is.na(input$theta) || input$theta < 0.0
+    feedbackDanger("theta", theta.cond, "Value must be greater than 0.0.")
+    req(!theta.cond, cancelOutput = TRUE)
+
     deltat.cond <-
       is.na(input$deltat) ||
       input$deltat <= 0.0 || input$deltat > 0.1
@@ -501,7 +497,7 @@ server <- function(input, output, session) {
           "."
         )
       )
-      # req(!dcart.cond, cancelOutput = TRUE)
+      #req(!dcart.cond, cancelOutput = TRUE)
       
       if (input$challenge) {
         challengeday.cond <-
@@ -520,7 +516,7 @@ server <- function(input, output, session) {
             "."
           )
         )
-        # req(!challengeday.cond, cancelOutput = TRUE)
+        #req(!challengeday.cond, cancelOutput = TRUE)
       }
     } else if (input$tdose == "Fractionated") {
       if (input$ndose == 2) {
@@ -539,7 +535,7 @@ server <- function(input, output, session) {
           ),
           icon = NULL
         )
-        # req(!doses2_1day.cond, cancelOutput = TRUE)
+        #req(!doses2_1day.cond, cancelOutput = TRUE)
         
         doses2_2day.cond <-
           is.na(input$doses2_2day) ||
@@ -558,7 +554,7 @@ server <- function(input, output, session) {
           ),
           icon = NULL
         )
-        # req(!doses2_2day.cond, cancelOutput = TRUE)
+        #req(!doses2_2day.cond, cancelOutput = TRUE)
         
         if (input$challenge) {
           challengeday.cond <-
@@ -577,7 +573,7 @@ server <- function(input, output, session) {
               "."
             )
           )
-          # req(!challengeday.cond, cancelOutput = TRUE)
+          #req(!challengeday.cond, cancelOutput = TRUE)
         }
       } else if (input$ndose == 3) {
         doses3_1day.cond <-
@@ -595,7 +591,7 @@ server <- function(input, output, session) {
           ),
           icon = NULL
         )
-        # req(!doses3_1day.cond, cancelOutput = TRUE)
+        #req(!doses3_1day.cond, cancelOutput = TRUE)
         
         doses3_2day.cond <-
           is.na(input$doses3_2day) ||
@@ -614,7 +610,7 @@ server <- function(input, output, session) {
           ),
           icon = NULL
         )
-        # req(!doses3_2day.cond, cancelOutput = TRUE)
+        #req(!doses3_2day.cond, cancelOutput = TRUE)
         
         doses3_3day.cond <-
           is.na(input$doses3_3day) ||
@@ -633,7 +629,7 @@ server <- function(input, output, session) {
           ),
           icon = NULL
         )
-        # req(!doses3_3day.cond, cancelOutput = TRUE)
+        #req(!doses3_3day.cond, cancelOutput = TRUE)
         
         if (input$challenge) {
           challengeday.cond <-
@@ -652,7 +648,7 @@ server <- function(input, output, session) {
               "."
             )
           )
-          # req(!challengeday.cond, cancelOutput = TRUE)
+          #req(!challengeday.cond, cancelOutput = TRUE)
         }
       } else if (input$ndose == 4) {
         doses4_1day.cond <-
@@ -670,7 +666,7 @@ server <- function(input, output, session) {
           ),
           icon = NULL
         )
-        # req(!doses4_1day.cond, cancelOutput = TRUE)
+        #req(!doses4_1day.cond, cancelOutput = TRUE)
         
         doses4_2day.cond <-
           is.na(input$doses4_2day) ||
@@ -689,7 +685,7 @@ server <- function(input, output, session) {
           ),
           icon = NULL
         )
-        # req(!doses4_2day.cond, cancelOutput = TRUE)
+        #req(!doses4_2day.cond, cancelOutput = TRUE)
         
         doses4_3day.cond <-
           is.na(input$doses4_3day) ||
@@ -708,7 +704,7 @@ server <- function(input, output, session) {
           ),
           icon = NULL
         )
-        # req(!doses4_3day.cond, cancelOutput = TRUE)
+        #req(!doses4_3day.cond, cancelOutput = TRUE)
         
         doses4_4day.cond <-
           is.na(input$doses4_4day) ||
@@ -727,7 +723,7 @@ server <- function(input, output, session) {
           ),
           icon = NULL
         )
-        # req(!doses4_4day.cond, cancelOutput = TRUE)
+        #req(!doses4_4day.cond, cancelOutput = TRUE)
         
         if (input$challenge) {
           challengeday.cond <-
@@ -746,7 +742,7 @@ server <- function(input, output, session) {
               "."
             )
           )
-          # req(!challengeday.cond, cancelOutput = TRUE)
+          #req(!challengeday.cond, cancelOutput = TRUE)
         }
       }
     }
@@ -1400,12 +1396,12 @@ server <- function(input, output, session) {
     }
   })
   
-  observeEvent(input$mit, {
-    if (is.na(input$mit) || input$mit < 0.0) {
-      showFeedbackWarning(inputId = "mit",
+  observeEvent(input$rho, {
+    if (is.na(input$rho) || input$rho < 0.0) {
+      showFeedbackWarning(inputId = "rho",
                           text = "Value must be greater than 0.0.")
     } else {
-      hideFeedback("mit")
+      hideFeedback("rho")
     }
   })
   
@@ -1418,21 +1414,21 @@ server <- function(input, output, session) {
     }
   })
   
-  observeEvent(input$rho, {
-    if (is.na(input$rho) || input$rho < 0.0) {
-      showFeedbackWarning(inputId = "rho",
+  observeEvent(input$epsilon, {
+    if (is.na(input$epsilon) || input$epsilon < 0.0) {
+      showFeedbackWarning(inputId = "epsilon",
                           text = "Value must be greater than 0.0.")
     } else {
-      hideFeedback("rho")
+      hideFeedback("epsilon")
     }
   })
   
-  observeEvent(input$mim, {
-    if (is.na(input$mim) || input$mim < 0.0) {
-      showFeedbackWarning(inputId = "mim",
+  observeEvent(input$mi, {
+    if (is.na(input$mi) || input$mi < 0.0) {
+      showFeedbackWarning(inputId = "mi",
                           text = "Value must be greater than 0.0.")
     } else {
-      hideFeedback("mim")
+      hideFeedback("mi")
     }
   })
   
@@ -1442,15 +1438,6 @@ server <- function(input, output, session) {
                           text = "Value must be greater than 0.0.")
     } else {
       hideFeedback("theta")
-    }
-  })
-  
-  observeEvent(input$epsilon, {
-    if (is.na(input$epsilon) || input$epsilon < 0.0) {
-      showFeedbackWarning(inputId = "epsilon",
-                          text = "Value must be greater than 0.0.")
-    } else {
-      hideFeedback("epsilon")
     }
   })
   
@@ -1464,7 +1451,7 @@ server <- function(input, output, session) {
     }
   })
   
-  #Commands related to determining the "Maximum simulation time"
+  # Commands related to determining the "Maximum simulation time"
   maximumsimulationtime <- reactive({
     if (input$dataset == "ex1" || input$dataset == "ex3")
       maximumsimulationtime <- 200
@@ -1491,7 +1478,7 @@ server <- function(input, output, session) {
       )
   })
   
-  #Commands related to determining the "Tumor cell number" at day 0
+  # Commands related to determining the "Tumor cell number" on day 0
   tumorcellnumber <- reactive({
     if (input$dataset == "ex4" ||
         input$dataset == "ex5" || input$dataset == "ex6")
@@ -1520,7 +1507,7 @@ server <- function(input, output, session) {
     ))
   })
   
-  #Commands related to determining the "Dose type"
+  # Commands related to determining the "Dose type"
   dosetype <- reactive({
     if (input$dataset == "ex3")
       dosetype <- "Fractionated"
@@ -1538,14 +1525,14 @@ server <- function(input, output, session) {
     ) %>%
       shinyInput_label_embed(
         shiny_iconlink("question-circle") %>%
-          bs_embed_popover(title = "CAR T Immunotherapy may be performed with a single dose or multiple (fractionated) doses.", placement = "left")
+          bs_embed_popover(title = "CAR-T Immunotherapy may be performed with a single dose or multiple (fractionated) doses.", placement = "left")
       )
   })
   
-  #Commands related to the Single dose
+  # Commands related to the Single dose
   cartcellnumber <- reactive({
     if (input$dataset == "ex1")
-      cartcellnumber <- 1.0
+      cartcellnumber <- 1.5
     else if (input$dataset == "ex2")
       cartcellnumber <- 2.0
     else if (input$dataset == "ex4" ||
@@ -1562,14 +1549,14 @@ server <- function(input, output, session) {
       withMathJax(),
       numericInput(
         inputId = "ncart",
-        label = "CAR T cell number (x\\(10^{6}\\))",
+        label = "CAR-T cell number (x\\(10^{6}\\))",
         min = 0.0,
         max = 100,
         value = ictcnumber
       ) %>%
         shinyInput_label_embed(
           shiny_iconlink("question-circle") %>%
-            bs_embed_popover(title = "Number of CAR T cells injected in a single dose.", placement = "left")
+            bs_embed_popover(title = "Number of CAR-T cells injected in a single dose.", placement = "left")
         )
     ))
   })
@@ -1588,18 +1575,18 @@ server <- function(input, output, session) {
     idctinjection <- daycartinjection()
     numericInput(
       inputId = "dcart",
-      label = "Day of CAR T cell injection",
+      label = "Day of CAR-T cell injection",
       min = 0,
       max = 500,
       value = idctinjection
     ) %>%
       shinyInput_label_embed(
         shiny_iconlink("question-circle") %>%
-          bs_embed_popover(title = "Injection day of the CAR T cell single dose.", placement = "left")
+          bs_embed_popover(title = "Injection day of the CAR-T cell single dose.", placement = "left")
       )
   })
   
-  #Commands related to the Fractionated dose
+  # Commands related to the Fractionated dose
   dosesnumber <- reactive({
     if (input$dataset == "ex3")
       dosesnumber <- 4
@@ -1618,12 +1605,12 @@ server <- function(input, output, session) {
     ) %>%
       shinyInput_label_embed(
         shiny_iconlink("question-circle") %>%
-          bs_embed_popover(title = "Number of doses injected. According to the selected number, the user must inform the injection day and the respective CAR T cell number injected for each dose.", placement = "left")
+          bs_embed_popover(title = "Number of doses injected. According to the selected number, the user must inform the injection day and the respective CAR-T cell number injected for each dose.", placement = "left")
       )
   })
   
-  #Commands related to the two doses
-  #First dose of the two doses injected
+  # Commands related to the two doses
+  # First dose of the two doses injected
   doses2_1dayinjection <- reactive({
     doses2_1dayinjection <- 0
     return(doses2_1dayinjection)
@@ -1650,12 +1637,12 @@ server <- function(input, output, session) {
       withMathJax(),
       numericInput(
         inputId = "doses2_1cell",
-        label = "CAR T cell number (x\\(10^{6}\\))",
+        label = "CAR-T cell number (x\\(10^{6}\\))",
         value = id2_1c
       )
     ))
   })
-  #Second dose of the two doses injected
+  # Second dose of the two doses injected
   doses2_2dayinjection <- reactive({
     doses2_2dayinjection <- 0
     return(doses2_2dayinjection)
@@ -1685,8 +1672,8 @@ server <- function(input, output, session) {
     ))
   })
   
-  #Commands related to the three doses
-  #First dose of the three doses injected
+  # Commands related to the three doses
+  # First dose of the three doses injected
   doses3_1dayinjection <- reactive({
     doses3_1dayinjection <- 0
     return(doses3_1dayinjection)
@@ -1713,12 +1700,12 @@ server <- function(input, output, session) {
       withMathJax(),
       numericInput(
         inputId = "doses3_1cell",
-        label = "CAR T cell number (x\\(10^{6}\\))",
+        label = "CAR-T cell number (x\\(10^{6}\\))",
         value = id3_1c
       )
     ))
   })
-  #Second dose of the three doses injected
+  # Second dose of the three doses injected
   doses3_2dayinjection <- reactive({
     doses3_2dayinjection <- 0
     return(doses3_2dayinjection)
@@ -1747,7 +1734,7 @@ server <- function(input, output, session) {
       )
     ))
   })
-  #Third dose of the three doses injected
+  # Third dose of the three doses injected
   doses3_3dayinjection <- reactive({
     doses3_3dayinjection <- 0
     return(doses3_3dayinjection)
@@ -1777,8 +1764,8 @@ server <- function(input, output, session) {
     ))
   })
   
-  #Commands related to the four doses
-  #First dose of the four doses injected
+  # Commands related to the four doses
+  # First dose of the four doses injected
   doses4_1dayinjection <- reactive({
     if (input$dataset == "ex3")
       doses4_1dayinjection <- 42
@@ -1811,12 +1798,12 @@ server <- function(input, output, session) {
       withMathJax(),
       numericInput(
         inputId = "doses4_1cell",
-        label = "CAR T cell number (x\\(10^{6}\\))",
+        label = "CAR-T cell number (x\\(10^{6}\\))",
         value = id4_1c
       )
     ))
   })
-  #Second dose of the four doses injected
+  # Second dose of the four doses injected
   doses4_2dayinjection <- reactive({
     if (input$dataset == "ex3")
       doses4_2dayinjection <- 49
@@ -1851,7 +1838,7 @@ server <- function(input, output, session) {
       )
     ))
   })
-  #Third dose of the four doses injected
+  # Third dose of the four doses injected
   doses4_3dayinjection <- reactive({
     if (input$dataset == "ex3")
       doses4_3dayinjection <- 56
@@ -1886,7 +1873,7 @@ server <- function(input, output, session) {
       )
     ))
   })
-  #Fourth dose of the four doses injected
+  # Fourth dose of the four doses injected
   doses4_4dayinjection <- reactive({
     if (input$dataset == "ex3")
       doses4_4dayinjection <- 63
@@ -1922,8 +1909,8 @@ server <- function(input, output, session) {
     ))
   })
   
-  #Commands related to the "Challenge"
-  #Commands regarding the choice to perform or not a challenge
+  # Commands related to the "Challenge"
+  # Commands regarding the choice to perform or not a challenge
   selectingchallenge <- reactive({
     if (input$dataset == "ex2")
       selectingchallenge <- TRUE
@@ -1943,7 +1930,7 @@ server <- function(input, output, session) {
           bs_embed_popover(title = "Inclusion of a challenge, that is, reinjection of tumor cells in the system. If this option is selected, the user must determine the challenge day and the respective number of tumor cells.", placement = "left")
       )
   })
-  #Commands regarding the choice of the challenge day
+  # Commands regarding the choice of the challenge day
   selectingchallengeday <- reactive({
     if (input$dataset == "ex2")
       selectingchallengeday <- 250
@@ -1962,7 +1949,7 @@ server <- function(input, output, session) {
       )
     )
   })
-  #Commands regarding the choice of the tumor cell number in challenge
+  # Commands regarding the choice of the tumor cell number in challenge
   selectingchallengetumorcell <- reactive({
     if (input$dataset == "ex2")
       selectingchallengetumorcell <- 1.0
@@ -1983,7 +1970,7 @@ server <- function(input, output, session) {
              ))
   })
   
-  #Commands related to determining the advanced parameters values
+  # Commands related to determining the advanced parameters values
   determiningrvalue <- reactive({
     if (input$dataset == "ex4" ||
         input$dataset == "ex5" ||
@@ -2024,14 +2011,14 @@ server <- function(input, output, session) {
     return(determiningphivalue)
   })
   
-  determiningmitvalue <- reactive({
+  determiningrhovalue <- reactive({
     if (input$dataset == "ex4" ||
         input$dataset == "ex5" ||
         input$dataset == "ex6" || input$dataset == "ex8")
-      determiningmitvalue <- 0.3000536
+      determiningrhovalue <- 0.8300536
     else
-      determiningmitvalue <- 0.3
-    return(determiningmitvalue)
+      determiningrhovalue <- 0.35
+    return(determiningrhovalue)
   })
   
   determiningalphavalue <- reactive({
@@ -2046,24 +2033,24 @@ server <- function(input, output, session) {
     return(determiningalphavalue)
   })
   
-  determiningrhovalue <- reactive({
+  determiningepsilonvalue <- reactive({
     if (input$dataset == "ex4" ||
         input$dataset == "ex5" ||
         input$dataset == "ex6" || input$dataset == "ex8")
-      determiningrhovalue <- 0.53
+      determiningepsilonvalue <- 1.59795
     else
-      determiningrhovalue <- 5.0e-2
-    return(determiningrhovalue)
+      determiningepsilonvalue <- 0.15
+    return(determiningepsilonvalue)
   })
   
-  determiningmimvalue <- reactive({
+  determiningmivalue <- reactive({
     if (input$dataset == "ex4" ||
         input$dataset == "ex5" ||
         input$dataset == "ex6" || input$dataset == "ex8")
-      determiningmimvalue <- 6.89e-7
+      determiningmivalue <- 6.89e-7
     else
-      determiningmimvalue <- 5.0e-3
-    return(determiningmimvalue)
+      determiningmivalue <- 5.0e-3
+    return(determiningmivalue)
   })
   
   determiningthetavalue <- reactive({
@@ -2075,17 +2062,7 @@ server <- function(input, output, session) {
       determiningthetavalue <- 6.0e-6
     return(determiningthetavalue)
   })
-  
-  determiningepsilonvalue <- reactive({
-    if (input$dataset == "ex4" ||
-        input$dataset == "ex5" ||
-        input$dataset == "ex6" || input$dataset == "ex8")
-      determiningepsilonvalue <- 3.015
-    else
-      determiningepsilonvalue <- 3.0
-    return(determiningepsilonvalue)
-  })
-  
+
   determiningdeltatvalue <- reactive({
     if (input$dataset == "ex4" ||
         input$dataset == "ex6" ||
@@ -2101,12 +2078,11 @@ server <- function(input, output, session) {
     dgammavalue <- determininggammavalue()
     dbvalue <- determiningbvalue()
     dphivalue <- determiningphivalue()
-    dmitvalue <- determiningmitvalue()
-    dalphavalue <- determiningalphavalue()
     drhovalue <- determiningrhovalue()
-    dmimvalue <- determiningmimvalue()
-    dthetavalue <- determiningthetavalue()
+    dalphavalue <- determiningalphavalue()
     depsilonvalue <- determiningepsilonvalue()
+    dmivalue <- determiningmivalue()
+    dthetavalue <- determiningthetavalue()
     ddeltatvalue <- determiningdeltatvalue()
     box(
       title = "Advanced parameters",
@@ -2125,7 +2101,7 @@ server <- function(input, output, session) {
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Growth rate of the tumor cells. It is related to the tumor doubling time (see the manual for more details). Unit: 1/day", placement =
+                  bs_embed_popover(title = "Growth rate of tumor cells. It is related to the tumor doubling time (see the manual for more details). Unit: 1/day", placement =
                                      "left")
               )
           )
@@ -2136,12 +2112,12 @@ server <- function(input, output, session) {
             withMathJax(),
             numericInput(
               inputId = "gamma",
-              label = "Tumor death rate by CAR T (\\( \\gamma \\))",
+              label = "Tumor death by CAR-T (\\( \\gamma \\))",
               value = dgammavalue
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Death rate of the tumor cells induced by effector CAR T cells. Unit: 1/(cell x day)", placement =
+                  bs_embed_popover(title = "Cytotoxic coefficient of tumor cells induced by effector CAR-T cells. Unit: 1/(cell x day)", placement =
                                      "left")
               )
           )
@@ -2157,7 +2133,7 @@ server <- function(input, output, session) {
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Inverse of the maximum quantity of the tumor cells supported by the system. Unit: 1/cell", placement =
+                  bs_embed_popover(title = "Inverse of the maximum quantity of tumor cells supported by the system. Unit: 1/cell", placement =
                                      "left")
               )
           )
@@ -2170,12 +2146,12 @@ server <- function(input, output, session) {
             withMathJax(),
             numericInput(
               inputId = "phi",
-              label = "CAR T proliferation rate (\\( \\phi \\))",
+              label = "CAR-T proliferation rate (\\( \\phi \\))",
               value = dphivalue
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Growth rate of the effector CAR T cells. It is related to the CAR T doubling time (see the manual for more details). Unit: 1/day", placement =
+                  bs_embed_popover(title = "Growth rate of  effector CAR-T cells. It is related to the CAR-T doubling time (see the manual for more details). Unit: 1/day", placement =
                                      "left")
               )
           )
@@ -2185,13 +2161,13 @@ server <- function(input, output, session) {
           fluidPage(
             withMathJax(),
             numericInput(
-              inputId = "mit",
-              label = "CAR T death rate (\\( \\mu_T \\))",
-              value = dmitvalue
+              inputId = "rho",
+              label = "CAR-T cell reduction rate (\\( \\rho \\))",
+              value = drhovalue
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Death rate of the effector CAR T cells. Unit: 1/day", placement =
+                  bs_embed_popover(title = "Reduction rate of  effector CAR-T cells, encompassing the effector CAR-T cell natural death and their differentiation  into memory CAR-T cells. Unit: 1/day", placement =
                                      "left")
               )
           )
@@ -2202,12 +2178,12 @@ server <- function(input, output, session) {
             withMathJax(),
             numericInput(
               inputId = "alpha",
-              label = "CAR T inhibition (\\( \\alpha \\))",
+              label = "CAR-T inhibition (\\( \\alpha \\))",
               value = dalphavalue
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Inhibition coefficient of the effector CAR T cells activity due to interation with tumor cells. Unit: 1/(cell x day)", placement =
+                  bs_embed_popover(title = "Inhibition coefficient of effector CAR-T cells activity due to interaction with tumor cells. Unit: 1/(cell x day)", placement =
                                      "left")
               )
           )
@@ -2219,13 +2195,13 @@ server <- function(input, output, session) {
           fluidPage(
             withMathJax(),
             numericInput(
-              inputId = "rho",
-              label = "Memory conversion rate (\\( \\rho \\))",
-              value = drhovalue
+              inputId = "epsilon",
+              label = "Memory conversion rate (\\( \\varepsilon \\))",
+              value = depsilonvalue
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Differentiation rate of the effector CAR T cells into memory CAR T cells. Unit: 1/day", placement =
+                  bs_embed_popover(title = "Effective conversion rate of effector CAR-T cells into memory CAR-T cells. Unit: 1/day", placement =
                                      "left")
               )
           )
@@ -2235,13 +2211,13 @@ server <- function(input, output, session) {
           fluidPage(
             withMathJax(),
             numericInput(
-              inputId = "mim",
-              label = "Memory death rate (\\( \\mu_M \\))",
-              value = dmimvalue
+              inputId = "mi",
+              label = "Memory death rate (\\( \\mu \\))",
+              value = dmivalue
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Death rate of the memory CAR T cells. Unit: 1/day", placement =
+                  bs_embed_popover(title = "Mortality rate of memory CAR-T cells. Unit: 1/day", placement =
                                      "left")
               )
           )
@@ -2257,29 +2233,13 @@ server <- function(input, output, session) {
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Conversion coefficient of memory CAR T cells into effector CAR T cells due to interaction with tumor cells. Unit: 1/(cell x day)", placement =
+                  bs_embed_popover(title = "Conversion coefficient of memory CAR-T cells into effector CAR-T cells due to interaction with tumor cells. Unit: 1/(cell x day)", placement =
                                      "left")
               )
           )
         )
       ),
       fluidRow(
-        column(
-          width = 4,
-          fluidPage(
-            withMathJax(),
-            numericInput(
-              inputId = "epsilon",
-              label = "Numerical response of the conversion (\\( \\varepsilon \\))",
-              value = depsilonvalue
-            ) %>%
-              shinyInput_label_embed(
-                shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Numerical response of the conversion of effector CAR T cells into memory CAR T cells. Unit: dimensionless", placement =
-                                     "left")
-              )
-          )
-        ),
         column(
           width = 4,
           fluidPage(
@@ -2293,14 +2253,14 @@ server <- function(input, output, session) {
             ) %>%
               shinyInput_label_embed(
                 shiny_iconlink("question-circle") %>%
-                  bs_embed_popover(title = "Time step to resolution of ordinary differential equation system. Greater value may decrease accuracy and lead to wrong outcomes. Best time step must be the smallest from which the solution is invariant.", placement =
+                  bs_embed_popover(title = "Time step for solving the system of ordinary differential equations. Greater values may decrease accuracy and lead to wrong outcomes. Best time step must be the smallest from which the solution is invariant.", placement =
                                      "left")
               )
           )
         ),
         column(
           width = 4,
-          align = "right",
+          align = "left",
           fluidPage(
             actionButton(
               inputId = "resetbutton",
@@ -2321,24 +2281,22 @@ server <- function(input, output, session) {
     dgammavalue <- determininggammavalue()
     dbvalue <- determiningbvalue()
     dphivalue <- determiningphivalue()
-    dmitvalue <- determiningmitvalue()
-    dalphavalue <- determiningalphavalue()
     drhovalue <- determiningrhovalue()
-    dmimvalue <- determiningmimvalue()
-    dthetavalue <- determiningthetavalue()
+    dalphavalue <- determiningalphavalue()
     depsilonvalue <- determiningepsilonvalue()
+    dmivalue <- determiningmivalue()
+    dthetavalue <- determiningthetavalue()
     ddeltatvalue <- determiningdeltatvalue()
     
     updateNumericInput(session, "r", value = drvalue)
     updateNumericInput(session, "gamma", value = dgammavalue)
     updateNumericInput(session, "b", value = dbvalue)
     updateNumericInput(session, "phi", value = dphivalue)
-    updateNumericInput(session, "mit", value = dmitvalue)
-    updateNumericInput(session, "alpha", value = dalphavalue)
     updateNumericInput(session, "rho", value = drhovalue)
-    updateNumericInput(session, "mim", value = dmimvalue)
-    updateNumericInput(session, "theta", value = dthetavalue)
+    updateNumericInput(session, "alpha", value = dalphavalue)
     updateNumericInput(session, "epsilon", value = depsilonvalue)
+    updateNumericInput(session, "mi", value = dmivalue)
+    updateNumericInput(session, "theta", value = dthetavalue)
     updateNumericInput(session, "deltat", value = ddeltatvalue)
     
     enable("resetbutton")
@@ -2354,20 +2312,20 @@ server <- function(input, output, session) {
         withMathJax(),
         br(),
         h4(
-          "\\( \\dfrac{d C_T}{d t} = \\phi C_T - \\rho C_T - \\mu_T C_T + \\theta T C_M - \\alpha T C_T \\)",
+          "\\( \\dfrac{d C_T}{d t} = \\phi C_T - \\rho C_T + \\theta T C_M - \\alpha T C_T \\)",
           align = "center"
         ),
         br(),
         h4(
-          "\\( \\dfrac{d C_M}{d t} = \\varepsilon \\rho  C_T - \\theta T C_M - \\mu_M C_M \\)",
+          "\\( \\dfrac{d C_M}{d t} = \\varepsilon C_T - \\theta T C_M - \\mu C_M \\)",
           align = "center"
         ),
         br(),
-        h4("\\( \\dfrac{d T}{d t} = r T (1 - b T) - \\gamma T C_T \\)", align = "center"),
+        h4("\\( \\dfrac{d T}{d t} = r T (1 - b T) - \\gamma C_T T \\)", align = "center"),
         br(),
         h4(strong("Physical Entities:")),
-        h4("\\( C_T \\): effector CAR T cell counts"),
-        h4("\\( C_M \\): memory CAR T cell counts"),
+        h4("\\( C_T \\): effector CAR-T cell counts"),
+        h4("\\( C_M \\): memory CAR-T cell counts"),
         h4("\\( T \\): tumor cell counts")
       ),
       tabPanel(
@@ -2423,12 +2381,11 @@ server <- function(input, output, session) {
           "gamma",
           "b",
           "phi",
-          "mit",
-          "alpha",
           "rho",
-          "mim",
-          "theta",
+          "alpha",
           "epsilon",
+          "mi",
+          "theta",
           "deltat"
         )
       
@@ -2436,34 +2393,32 @@ server <- function(input, output, session) {
       for (name in input.names)
         v$tempInput[[name]] <- input[[name]]
       
-      #Commands related to solving the differential equation system
+      # Commands related to solving the differential equation system
       source("rk4.R")
-      #Defining the model parameters: (phi, rho, mu_T, theta, alfa, beta, mu_M, r, b, gamma)
-      beta <- v$tempInput$epsilon * v$tempInput$rho
+      # Defining the model parameters: (phi, rho, theta, alpha, epsilon, mu, r, b, gamma)
       param <-
         c(
           v$tempInput$phi,
           v$tempInput$rho,
-          v$tempInput$mit,
           v$tempInput$theta,
           v$tempInput$alpha,
-          beta,
-          v$tempInput$mim,
+          v$tempInput$epsilon,
+          v$tempInput$mi,
           v$tempInput$r,
           v$tempInput$b,
           v$tempInput$gamma
         )
-      #Initial conditions: C_T, C_M e T em t=0
+      # Initial conditions: C_T, C_M e T em t=0
       cond_inicial <- c(0., 0., (v$tempInput$ntumor) * 1.0e6)
-      #Setting the execution interval [t0, tf], the size of the time step dt, and the maximum size of the solution matrix (tempo = c(t0, tf, dt, tam_max_Y))
-      #Default numerical parameters: dt = 1.e-3 (HDML-2) and dt = 1.e-5 (RAJI); tam_max_Y = 20000
+      # Setting the execution interval [t0, tf], the size of the time step dt, and the maximum size of the solution matrix (tempo = c(t0, tf, dt, tam_max_Y))
+      # Default numerical parameters: dt = 1.e-3 (HDML-2) and dt = 1.e-5 (RAJI); tam_max_Y = 20000
       param_tempo <-
         c(0, v$tempInput$maxtime, v$tempInput$deltat, 20000)
       t0 <- param_tempo[1]
       tf <- param_tempo[2]
       dt <- param_tempo[3]
       tam_max_arq <- param_tempo[4]
-      #Defining the model data: n_doses (number of treatments), dias_doses (treatment days), val_doses (dose values), n_tumor (number of tumor injections), dias_tumor (tumor injection days), and val_tumor (tumor values)
+      # Defining the model data: n_doses (number of treatments), dias_doses (treatment days), val_doses (dose values), n_tumor (number of tumor injections), dias_tumor (tumor injection days), and val_tumor (tumor values)
       if (v$tempInput$tdose == "Single") {
         n_doses <- 1
         dias_doses <- v$tempInput$dcart
@@ -2518,52 +2473,52 @@ server <- function(input, output, session) {
         val_tumor  <- 0
       }
       
-      #Model solution
-      #Growing organization of action treatment and/or tumor injection: tag_acao = 1 (treatment) and 3 (tumor injection)
-      #If you don't have a tumor injection (n_tumor = 0)
+      # Model solution
+      # Growing organization of action treatment and/or tumor injection: tag_acao = 1 (treatment) and 3 (tumor injection)
+      # If you don't have a tumor injection (n_tumor = 0)
       if (n_tumor == 0) {
-        #If we have only one treatment (n_doses = 1)
+        # If we have only one treatment (n_doses = 1)
         n_acoes   <- n_doses + 2
         dias_acao <- c(t0, dias_doses, tf)
         val_acao  <- c(0,  val_doses,  0)
         tag_acao  <- integer(length = n_acoes) + 1
-        #If we have more than one treatment (n_doses > 1)
+        # If we have more than one treatment (n_doses > 1)
         if (n_doses > 1) {
           n_acoes   <- n_doses + 2
           dias_acao <- c(t0, dias_doses, tf)
           val_acao  <- c(0, val_doses, 0)
           tag_acao  <- integer(length = n_acoes) + 1
-          #Organize by days
+          # Organize by days
           (ii <- order(dias_acao, val_acao, tag_acao))
           mat_org  <- rbind(dias_acao, val_acao, tag_acao)[, ii]
-          #Recover the vectors organized by day
+          # Recover the vectors organized by day
           dias_acao <- mat_org[1,]
           val_acao  <- mat_org[2,]
           tag_acao  <- mat_org[3,]
         }
       } else {
-        #If we have tumor injection
+        # If we have tumor injection
         n_acoes   <- n_doses + n_tumor + 2
         tag_doses <- integer(length = n_doses) + 1
         tag_tumor <- integer(length = n_tumor) + 3
         dias_acao <- c(t0, dias_doses, dias_tumor, tf)
         val_acao  <- c(0, val_doses, val_tumor, 0)
         tag_acao  <- c(1, tag_doses, tag_tumor, 1)
-        #Organize by days
+        # Organize by days
         (ii <- order(dias_acao, val_acao, tag_acao))
         mat_org  <- rbind(dias_acao, val_acao, tag_acao)[, ii]
-        #Recover the vectors organized by day
+        # Recover the vectors organized by day
         dias_acao <- mat_org[1,]
         val_acao  <- mat_org[2,]
         tag_acao  <- mat_org[3,]
       }
-      #Calculation of the iterations where the actions occur
+      # Calculation of the iterations where the actions occur
       iter_acao  <- integer(length = n_acoes) + 1
       v_for <- seq(1, n_acoes - 1)
       for (i in v_for) {
         iter_acao[i + 1]  <- round(dias_acao[i + 1] / dt, digits = 0) + 1
       }
-      #Calculation of printing frequency (based on the size of the output file)
+      # Calculation of printing frequency (based on the size of the output file)
       iter_max    <- iter_acao[n_acoes]
       freq_print  <- 1
       tam_max_mat <- iter_max
@@ -2572,14 +2527,14 @@ server <- function(input, output, session) {
         tam_max_mat <-
           length(seq(1, iter_max, by = freq_print)) + 1 + n_acoes
       }
-      #Creation of the solution matrix (Y = (C_T, C_M, T)) and time vector (vet_tempo)
+      # Creation of the solution matrix (Y = (C_T, C_M, T)) and time vector (vet_tempo)
       mat_sol   <-
         matrix(0.,
                nrow = tam_max_mat,
                ncol = 3,
                byrow = TRUE)
       vet_tempo <- array(0., dim = tam_max_mat)
-      #Progress bar
+      # Progress bar
       updateProgress <- function(value = NULL) {
         if (is.null(value)) {
           value <- progress$getValue() + 0.05
@@ -2591,36 +2546,36 @@ server <- function(input, output, session) {
       progress <- shiny::Progress$new()
       on.exit(progress$close())
       
-      #Actions: treatment or injection of tumor cells
+      # Actions: treatment or injection of tumor cells
       nrow <- 1
       vet_tempo[nrow] <- t0
-      Y0 <- cond_inicial #Initial condition
+      Y0 <- cond_inicial # Initial condition
       v_for <- seq(1, n_acoes - 1)
       for (i in v_for) {
-        #Progress bar
+        # Progress bar
         progress$set(
           message = paste("Solving the model (Part", i, "of", n_acoes - 1, "):"),
           value = 0,
           detail = paste(progress$getValue() * 100, "%")
         )
         
-        #Action interval
+        # Action interval
         ti_acao <- dias_acao[i]
         tf_acao <- dias_acao[i + 1]
-        #Apply the action
+        # Apply the action
         i_acao <- tag_acao[i]
         Y0[i_acao] <- Y0[i_acao] + val_acao[i]
-        #Save solution after the action
+        # Save solution after the action
         mat_sol[nrow,]  <- Y0
-        #Time loop
+        # Time loop
         iter_print <- 0
         tempo <- ti_acao
         iter <- iter_acao[i]
         iter_final <- iter_acao[i + 1]
         while (iter < iter_final) {
-          #Calculation of the solution at t=tempo+dt
+          # Calculation of the solution at t=tempo+dt
           Y <- rk_4ordem(param, tempo, dt, Y0)
-          #Save time and solution at the established frequency
+          # Save time and solution at the established frequency
           iter_print <- iter_print + 1
           if (iter_print == freq_print) {
             iter_print <- 0
@@ -2628,23 +2583,23 @@ server <- function(input, output, session) {
             mat_sol[nrow,]  <- Y
             vet_tempo[nrow] <- tempo + dt
           }
-          #Update time and solution
+          # Update time and solution
           iter  <- iter + 1
           tempo <- tempo + dt
           Y0 <- Y
           
-          #Progress bar
+          # Progress bar
           if (is.function(updateProgress) &&
               mod(iter - iter_acao[i], floor((iter_acao[i + 1] - iter_acao[i] - 1) * 0.05)) == 0) {
             updateProgress()
           }
         }
         
-        #Progress bar
+        # Progress bar
         if (is.function(updateProgress))
           updateProgress(value = 1)
         
-        #Save solution at t=tf_acao
+        # Save solution at t=tf_acao
         if (abs(vet_tempo[nrow] - tf_acao) >= dt) {
           nrow <- nrow + 1
           mat_sol[nrow,]  <- Y
@@ -2658,7 +2613,7 @@ server <- function(input, output, session) {
         v$Mprint[apply(v$Mprint[,-1], 1, function(x)
           ! all(x == 0)),]
       
-      #Plot
+      # Plot
       x = v$Mprint[, 1]
       values = cbind(v$Mprint[, 2], v$Mprint[, 3], v$Mprint[, 4])
       plot.dat = data.frame(values, x)
@@ -2683,7 +2638,7 @@ server <- function(input, output, session) {
       fig <-
         fig %>% add_lines(
           y = ~ values[, 1],
-          name = 'CAR T eff',
+          name = 'CAR-T eff',
           type = 'scatter',
           mode = 'lines',
           line = list(color = 'forestgreen', width = 2)
@@ -2691,7 +2646,7 @@ server <- function(input, output, session) {
       fig <-
         fig %>% add_lines(
           y = ~ values[, 2],
-          name = 'CAR T mem',
+          name = 'CAR-T mem',
           type = 'scatter',
           mode = 'lines',
           line = list(color = 'blue', width = 2)
@@ -2715,7 +2670,7 @@ server <- function(input, output, session) {
             showline = TRUE
           ),
           yaxis = list(
-            title = "<b> CAR T eff, CAR T mem (#cells) </b>",
+            title = "<b> CAR-T eff, CAR-T mem (#cells) </b>",
             exponentformat = "power",
             showgrid = TRUE,
             showline = TRUE,
@@ -2737,13 +2692,13 @@ server <- function(input, output, session) {
     })
   })
   
-  #Commands related to plot of the graphs in "Graphs" item
-  #Plot of the effector CAR T cells
+  # Commands related to plot of the graphs in "Graphs" item
+  # Plot of the effector CAR-T cells
   output$graph1 <- renderPlotly({
     if (v$doSimulation == FALSE)
       return()
     
-    #Plot
+    # Plot
     x = v$Mprint[, 1]
     values = v$Mprint[, 2]
     plot.dat = data.frame(values, x)
@@ -2869,15 +2824,15 @@ server <- function(input, output, session) {
   })
   output$graph1Text <- renderText({
     if (v$doSimulation == FALSE)
-      "Run a simulation to view the plot of the effector CAR T cells."
+      "Run a simulation to view the plot of the effector CAR-T cells."
   })
   
-  #Plot of the memory CAR T cells
+  # Plot of the memory CAR-T cells
   output$graph2 <- renderPlotly({
     if (v$doSimulation == FALSE)
       return()
     
-    #Plot
+    # Plot
     x = v$Mprint[, 1]
     values = v$Mprint[, 3]
     plot.dat = data.frame(values, x)
@@ -3004,15 +2959,15 @@ server <- function(input, output, session) {
   })
   output$graph2Text <- renderText({
     if (v$doSimulation == FALSE)
-      "Run a simulation to view the plot of the memory CAR T cells."
+      "Run a simulation to view the plot of the memory CAR-T cells."
   })
   
-  #Plot of the tumor cells
+  # Plot of the tumor cells
   output$graph3 <- renderPlotly({
     if (v$doSimulation == FALSE)
       return()
     
-    #Plot
+    # Plot
     x = v$Mprint[, 1]
     values = v$Mprint[, 4]
     plot.dat = data.frame(values, x)
@@ -3142,12 +3097,12 @@ server <- function(input, output, session) {
       "Run a simulation to view the plot of the tumor cells."
   })
   
-  #Plot of the all population cells
+  # Plot of the all population cells
   output$graph4 <- renderPlotly({
     if (v$doSimulation == FALSE)
       return()
     
-    #Plot
+    # Plot
     x = v$Mprint[, 1]
     values = cbind(v$Mprint[, 2], v$Mprint[, 3], v$Mprint[, 4])
     plot.dat = data.frame(values, x)
@@ -3429,7 +3384,7 @@ server <- function(input, output, session) {
       "Run a simulation to view the plot of the all population cells."
   })
   
-  #Commands related to the "Table" item
+  # Commands related to the "Table" item
   summarizeTable <- function(maxtime, Mprint) {
     Mprint.df <- data.frame()
     for (i in 0:maxtime) {
@@ -3478,8 +3433,8 @@ server <- function(input, output, session) {
         })
       colnames(Mprint.df) <-
         c("Time (day)",
-          "Effector CAR T (# cells)",
-          "Memory CAR T (# cells)",
+          "Effector CAR-T (# cells)",
+          "Memory CAR-T (# cells)",
           "Tumor (# cells)")
       
       options(scipen = 999)
@@ -3504,8 +3459,8 @@ server <- function(input, output, session) {
         })
       colnames(Mprint.df) <-
         c("Time (day)",
-          "Effector CAR T (# cells)",
-          "Memory CAR T (# cells)",
+          "Effector CAR-T (# cells)",
+          "Memory CAR-T (# cells)",
           "Tumor (# cells)")
       
       options(scipen = 999)
@@ -3519,8 +3474,8 @@ server <- function(input, output, session) {
     Mprint.df <- summarizeTable(v$tempInput$maxtime, v$Mprint)
     colnames(Mprint.df) <-
       c("Time (day)",
-        "Effector CAR T (# cells)",
-        "Memory CAR T (# cells)",
+        "Effector CAR-T (# cells)",
+        "Memory CAR-T (# cells)",
         "Tumor (# cells)")
     datatable(
       Mprint.df,
@@ -3563,7 +3518,7 @@ server <- function(input, output, session) {
       "Run a simulation to view the table data of all population cells."
   })
   
-  #Commands related to the "Download report" item
+  # Commands related to the "Download report" item
   output$uiReport <- renderUI({
     if (v$doSimulation == FALSE)
       return()
@@ -3574,137 +3529,202 @@ server <- function(input, output, session) {
         "Download the report that contains information about the parameter values used in this simulation:"
       ),
       br(),
-      fluidRow(column(
-        width = 12,
-        align = "center",
-        downloadButton("report", strong("Download report"),
+      fluidRow(column(4),
+        column(
+          width = 2,
+          align = "center",
+          actionButton("generateReport", strong("Generate report"), icon = icon("file"), 
                        style = "padding:11px; font-size:110%; color: #fff; background-color: #e61109; border-color: #e61109"),
-        br()
-      ))
+          br()
+        ),
+        column(
+          width = 2,
+          align = "center",
+          disabled(downloadButton("downloadReport", strong("Download report"),
+                                  style = "padding:11px; font-size:110%; color: #fff; background-color: #e61109; border-color: #e61109")),
+          br()
+        ),
+        column(4)
+      )
     )
   })
   
-  output$report <- downloadHandler(
+  report <- reactiveValues(filepath = NULL)
+  
+  observeEvent(input$generateReport, {
+    withProgress(message = "Rendering the report:",
+                 value = 0,
+                 detail = "0%",
+                 {
+                   disable("generateReport")
+                   disable("downloadReport")
+                   
+                   tempReport <-
+                     file.path(tempdir(), "report.Rmd")
+                   file.copy("report.Rmd", tempReport, overwrite = TRUE)
+                   
+                   tempLogo <-
+                     file.path(tempdir(), "cart_black.png")
+                   file.copy(file.path("img", "cart_black.png"),
+                             tempLogo,
+                             overwrite = TRUE)
+                   
+                   tempFile <- tempfile(fileext = ".pdf")
+                   
+                   # Set up parameters to pass to Rmd document
+                   time = v$tempInput$maxtime
+                   tumor = v$tempInput$ntumor * 1.0e+06
+                   type = v$tempInput$tdose
+                   if (v$tempInput$tdose == "Single") {
+                     immuno = paste(v$tempInput$ncart * 1.0e+06,
+                                    "CAR-T cells inserted in day",
+                                    v$tempInput$dcart)
+                     if (v$tempInput$challenge)
+                       challenge = paste(
+                         as.numeric(v$tempInput$challengetumor) * 1.0e+06,
+                         "tumor cells inserted in day",
+                         v$tempInput$challengeday
+                       )
+                     else
+                       challenge = "Not applied"
+                   } else {
+                     if (v$tempInput$ndose == 2)
+                       immuno = paste(
+                         as.numeric(v$tempInput$doses2_1cell) * 1.0e+06,
+                         "CAR-T cells inserted in day",
+                         v$tempInput$doses2_1day,
+                         ";" ,
+                         as.numeric(v$tempInput$doses2_2cell) * 1.0e+06,
+                         "CAR-T cells inserted in day",
+                         v$tempInput$doses2_2day
+                       )
+                     else if (v$tempInput$ndose == 3)
+                       immuno = paste(
+                         as.numeric(v$tempInput$doses3_1cell) * 1.0e+06,
+                         "CAR-T cells inserted in day",
+                         v$tempInput$doses3_1day,
+                         ";",
+                         as.numeric(v$tempInput$doses3_2cell) * 1.0e+06,
+                         "CAR-T cells inserted in day",
+                         v$tempInput$doses3_2day,
+                         ";",
+                         as.numeric(v$tempInput$doses3_3cell) * 1.0e+06,
+                         "CAR-T cells inserted in day",
+                         v$tempInput$doses3_3day
+                       )
+                     else
+                       immuno = paste(
+                         as.numeric(v$tempInput$doses4_1cell) * 1.0e+06,
+                         "CAR-T cells inserted in day",
+                         v$tempInput$doses4_1day,
+                         ";",
+                         as.numeric(v$tempInput$doses4_2cell) * 1.0e+06,
+                         "CAR-T cells inserted in day",
+                         v$tempInput$doses4_2day,
+                         ";",
+                         as.numeric(v$tempInput$doses4_3cell) * 1.0e+06,
+                         "CAR-T cells inserted in day",
+                         v$tempInput$doses4_3day,
+                         ";",
+                         as.numeric(v$tempInput$doses4_4cell) * 1.0e+06,
+                         "CAR-T cells inserted in day",
+                         v$tempInput$doses4_4day
+                       )
+                     if (v$tempInput$challenge)
+                       challenge = paste(
+                         as.numeric(v$tempInput$challengetumor) * 1.0e+06,
+                         "tumor cells inserted in day",
+                         v$tempInput$challengeday
+                       )
+                     else
+                       challenge = "Not applied"
+                   }
+                   
+                   params <-
+                     list(
+                       time = time,
+                       tumor = tumor,
+                       type = type,
+                       immuno = immuno,
+                       challenge = challenge,
+                       r = v$tempInput$r,
+                       gamma = v$tempInput$gamma,
+                       b = v$tempInput$b,
+                       phi = v$tempInput$phi,
+                       rho = v$tempInput$rho,
+                       alpha = v$tempInput$alpha,
+                       epsilon = v$tempInput$epsilon,
+                       mi = v$tempInput$mi,
+                       theta = v$tempInput$theta,
+                       deltat = v$tempInput$deltat,
+                       Mprint = v$Mprint
+                     )
+                   rmarkdown::render(
+                     tempReport,
+                     output_file = tempFile,
+                     params = params,
+                     envir = new.env(parent = globalenv())
+                   )
+                   report$filepath <- tempFile
+                   
+                   enable("generateReport")
+                   enable("downloadReport")
+                 })
+    showNotification(HTML("<strong>Report successfully generated.</strong> Click on \"Download report\" button to download it."), 
+                     duration = 10, 
+                     closeButton = TRUE,
+                     type = "default")
+  })
+  
+  output$downloadReport <- downloadHandler(
     filename = "report.pdf",
     content = function(file) {
-      withProgress(message = "Rendering the report:",
-                   value = 0,
-                   detail = "0%",
-                   {
-                     disable("report")
-                     
-                     tempReport <-
-                       file.path(tempdir(), "report.Rmd")
-                     file.copy("report.Rmd", tempReport, overwrite = TRUE)
-                     
-                     tempLogo <-
-                       file.path(tempdir(), "cart_black.png")
-                     file.copy(file.path("img", "cart_black.png"),
-                               tempLogo,
-                               overwrite = TRUE)
-                     
-                     # Set up parameters to pass to Rmd document
-                     time = v$tempInput$maxtime
-                     tumor = v$tempInput$ntumor * 1.0e+06
-                     type = v$tempInput$tdose
-                     if (v$tempInput$tdose == "Single") {
-                       immuno = paste(v$tempInput$ncart * 1.0e+06,
-                                      "CAR T cells inserted in day",
-                                      v$tempInput$dcart)
-                       if (v$tempInput$challenge)
-                         challenge = paste(
-                           as.numeric(v$tempInput$challengetumor) * 1.0e+06,
-                           "tumor cells inserted in day",
-                           v$tempInput$challengeday
-                         )
-                       else
-                         challenge = "Not applied"
-                     } else {
-                       if (v$tempInput$ndose == 2)
-                         immuno = paste(
-                           as.numeric(v$tempInput$doses2_1cell) * 1.0e+06,
-                           "CAR T cells inserted in day",
-                           v$tempInput$doses2_1day,
-                           ";" ,
-                           as.numeric(v$tempInput$doses2_2cell) * 1.0e+06,
-                           "CAR T cells inserted in day",
-                           v$tempInput$doses2_2day
-                         )
-                       else if (v$tempInput$ndose == 3)
-                         immuno = paste(
-                           as.numeric(v$tempInput$doses3_1cell) * 1.0e+06,
-                           "CAR T cells inserted in day",
-                           v$tempInput$doses3_1day,
-                           ";",
-                           as.numeric(v$tempInput$doses3_2cell) * 1.0e+06,
-                           "CAR T cells inserted in day",
-                           v$tempInput$doses3_2day,
-                           ";",
-                           as.numeric(v$tempInput$doses3_3cell) * 1.0e+06,
-                           "CAR T cells inserted in day",
-                           v$tempInput$doses3_3day
-                         )
-                       else
-                         immuno = paste(
-                           as.numeric(v$tempInput$doses4_1cell) * 1.0e+06,
-                           "CAR T cells inserted in day",
-                           v$tempInput$doses4_1day,
-                           ";",
-                           as.numeric(v$tempInput$doses4_2cell) * 1.0e+06,
-                           "CAR T cells inserted in day",
-                           v$tempInput$doses4_2day,
-                           ";",
-                           as.numeric(v$tempInput$doses4_3cell) * 1.0e+06,
-                           "CAR T cells inserted in day",
-                           v$tempInput$doses4_3day,
-                           ";",
-                           as.numeric(v$tempInput$doses4_4cell) * 1.0e+06,
-                           "CAR T cells inserted in day",
-                           v$tempInput$doses4_4day
-                         )
-                       if (v$tempInput$challenge)
-                         challenge = paste(
-                           as.numeric(v$tempInput$challengetumor) * 1.0e+06,
-                           "tumor cells inserted in day",
-                           v$tempInput$challengeday
-                         )
-                       else
-                         challenge = "Not applied"
-                     }
-                     
-                     params <-
-                       list(
-                         time = time,
-                         tumor = tumor,
-                         type = type,
-                         immuno = immuno,
-                         challenge = challenge,
-                         r = v$tempInput$r,
-                         gamma = v$tempInput$gamma,
-                         b = v$tempInput$b,
-                         phi = v$tempInput$phi,
-                         mit = v$tempInput$mit,
-                         alpha = v$tempInput$alpha,
-                         rho = v$tempInput$rho,
-                         mim = v$tempInput$mim,
-                         theta = v$tempInput$theta,
-                         epsilon = v$tempInput$epsilon,
-                         deltat = v$tempInput$deltat,
-                         Mprint = v$Mprint
-                       )
-                     rmarkdown::render(
-                       tempReport,
-                       output_file = file,
-                       params = params,
-                       envir = new.env(parent = globalenv())
-                     )
-                     
-                     enable("report")
-                   })
+      file.copy(report$filepath, file)
     }
   )
   output$reportText <- renderText({
     if (v$doSimulation == FALSE)
       "Run a simulation to download the report."
+  })
+  
+  # Commands related to the citation file export
+  output$exportRIS <- downloadHandler(
+    filename <- function() {
+      paste("cartmath", "ris", sep=".")
+    },
+    content <- function(file) {
+      file.copy("citation/cartmath.ris", file)
+    },
+    contentType = "application/ris"
+  )
+  
+  output$exportBIB <- downloadHandler(
+    filename <- function() {
+      paste("cartmath", "bib", sep=".")
+    },
+    content <- function(file) {
+      file.copy("citation/cartmath.bib", file)
+    },
+    contentType = "application/bib"
+  )
+  
+  output$exportTXT <- downloadHandler(
+    filename <- function() {
+      paste("cartmath", "txt", sep=".")
+    },
+    content <- function(file) {
+      file.copy("citation/cartmath.txt", file)
+    },
+    contentType = "application/txt"
+  )
+  
+  observeEvent(input$copyCitation, {
+    clipr::write_clip("CARTmath. Version 1.0. Petrópolis: Paixão, E.A.;  Naozuka, G.T.; Valli, A.M.P., 
+                              Barros, L.R.C.; Almeida, R.C., 2020. Available at: https://github.com/tmglncc/CARTmath, 2020. 
+                              Access in: february 28th, 2020. doi: http://doi.org/10.5281/zenodo.4450377")
+    showNotification(strong("Citation copied to clipboard."), 
+                     duration = 5, 
+                     closeButton = TRUE,
+                     type = "default")
   })
 }

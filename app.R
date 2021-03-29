@@ -15,6 +15,8 @@ rm(list = ls())
 # tinytex::install_tinytex()
 # install.packages ("webshot")
 # webshot::install_phantomjs()
+#
+# For Linux system install xclip via terminal by the command: sudo apt-get install xclip 
 # -------------------------------------------------------------------------------------------------------------------------------------------
 
 # Load libraries ----------------------------------------------------------------------------------------------------------------------------
@@ -37,5 +39,5 @@ source("ui.R")
 
 source("server.R")
 
-#Run the shiny app to display webpage
+# Run the shiny app to display webpage
 shinyApp(ui = ui, server = server)

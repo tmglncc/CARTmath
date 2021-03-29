@@ -1,9 +1,16 @@
 ---
 title: |
-  ![](cart_black.png){width=1.90in}  
+  ![](cart_black.png){width=1.90in}^[CAR **T** *math*. Version 1.0. Petrópolis: Paixão, E.A.;  Naozuka, G.T.; Valli, A.M.P., 
+                              Barros, L.R.C.; Almeida, R.C., 2020. Available at: https://github.com/tmglncc/CARTmath, 2020. 
+                              Access in: february 28th, 2020. doi: http://doi.org/10.5281/zenodo.4450377"]  
   **Report**
-header-includes: \usepackage{xcolor}
-output: pdf_document
+header-includes: 
+  \usepackage{xcolor}
+  \usepackage{float}
+  \floatplacement{figure}{H}
+output: 
+  pdf_document: 
+    fig_caption: no
 papersize: a4
 params:
   time: NA
@@ -15,12 +22,11 @@ params:
   gamma: NA
   b: NA
   phi: NA
-  mit: NA
-  alpha: NA
   rho: NA
-  mim: NA
-  theta: NA
+  alpha: NA
   epsilon: NA
+  mi: NA
+  theta: NA
   deltat: NA
   Mprint: NA
 ---
@@ -41,9 +47,9 @@ library("knitr")
 
 # **\textcolor{blue}{Simulated mathematical model}**
 
-$$\dfrac{d C_T}{d t} = \phi C_T - \rho C_T- \mu_T C_T + \theta T C_M - \alpha T C_T$$
-$$\dfrac{d C_M}{d t} = \epsilon \rho  C_T - \theta T C_M - \mu_M C_M$$
-$$\dfrac{d T}{d t} = r T(1-bT)  - \gamma T C_T$$
+$$\dfrac{d C_T}{d t} = \phi C_T - \rho C_T + \theta T C_M - \alpha T C_T$$
+$$\dfrac{d C_M}{d t} = \epsilon C_T - \theta T C_M - \mu C_M$$
+$$\dfrac{d T}{d t} = r T(1-bT)  - \gamma C_T T$$
 
 ```{r include=FALSE}
 shiny::setProgress(value = 0.25, detail = "25%")
@@ -52,8 +58,8 @@ shiny::setProgress(value = 0.25, detail = "25%")
 # **\textcolor{blue}{Setup parameters}**
 
 1. **Maximum simulation time**: `r params$time` days
-2. **Tumor cell number at day 0 (beginning of the simulation)**: `r params$tumor` cells
-3. **CAR T Immunotherapy:**
+2. **Tumor cell number on day 0 (beginning of the simulation)**: `r params$tumor` cells
+3. **CAR-T Immunotherapy:**
     * `r params$type` dose
     * `r format(params$immuno, scientific=TRUE)`
 4. **Challenge:** `r params$challenge`
@@ -62,12 +68,11 @@ shiny::setProgress(value = 0.25, detail = "25%")
     * $\gamma$ = `r params$gamma` $(cell.day)^{-1}$
     * $b$ = `r params$b` $cell^{-1}$
     * $\phi$ = `r params$phi` $day^{-1}$
-    * $\mu_T$ = `r params$mit` $day^{-1}$
-    * $\alpha$ = `r params$alpha` $(cell.day)^{-1}$
     * $\rho$ = `r params$rho` $day^{-1}$
-    * $\mu_M$ = `r params$mim` $day^{-1}$
-    * $\theta$ = `r params$theta` $(cell.day)^{-1}$
+    * $\alpha$ = `r params$alpha` $(cell.day)^{-1}$
     * $\epsilon$ = `r params$epsilon` (dimensionless)
+    * $\mu$ = `r params$mi` $day^{-1}$
+    * $\theta$ = `r params$theta` $(cell.day)^{-1}$
     * $\Delta t$ = `r params$deltat` $day$
     
 ```{r include=FALSE}

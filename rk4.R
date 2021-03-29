@@ -17,7 +17,8 @@
 #     y        Solution of y(t) at t + dt
 #--------------------------------------------------------------------------
 rk_4ordem <- function(param, t, dt, Y) {
-  threshold <- 1.e-6 #The minimum number of detectable cells
+  threshold <- 1.0e-10 # When any cell population reaches cell numbers below 1.0e-10, it is treated as extinct by assigning the zero value 
+                       # directly to the corresponding variable
   
   k1 = deriv(param, t, Y)
   k2 = deriv(param, t + 0.5 * dt, Y + 0.5 * dt * k1)
@@ -42,15 +43,15 @@ rk_4ordem <- function(param, t, dt, Y) {
 #----------------------------------------------------------------------
 # --- Model derivative function f(t,Y), where
 #        Y = (C_T, C_M, T)
-#    param = (phi, rho, mu_T, theta, alfa, beta, mu_M, r, b, gamma)
+#    param = (phi, rho, theta, alpha, epsilon, mu, r, b, gamma)
 #----------------------------------------------------------------------
 deriv <- function(param, t, Y) {
-  deriv_CT = (param[1] - param[2] - param[3]) * Y[1] + param[4] * Y[3] * Y[2] - param[5] *
+  deriv_CT = (param[1] - param[2]) * Y[1] + param[3] * Y[3] * Y[2] - param[4] *
     Y[3] * Y[1]
   
-  deriv_CM = param[6] * Y[1] - param[4] * Y[3] * Y[2] - param[7] * Y[2]
+  deriv_CM = param[5] * Y[1] - param[3] * Y[3] * Y[2] - param[6] * Y[2]
   
-  deriv_T  = param[8] * Y[3] * (1. - param[9] * Y[3]) - param[10] * Y[3] *
+  deriv_T  = param[7] * Y[3] * (1. - param[8] * Y[3]) - param[9] * Y[3] *
     Y[1]
   
   result <- c(deriv_CT, deriv_CM, deriv_T)
