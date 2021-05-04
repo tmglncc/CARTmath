@@ -3525,27 +3525,18 @@ server <- function(input, output, session) {
     
     fluidPage(
       # br(),
-      h4(
-        "Download the report that contains information about the parameter values used in this simulation:"
-      ),
+      h4("Download the report that contains information about the parameter values used in this simulation:"),
       br(),
-      fluidRow(column(4),
-        column(
-          width = 2,
+      fluidRow(column(
+          width = 12,
           align = "center",
           actionButton("generateReport", strong("Generate report"), icon = icon("file"), 
                        style = "padding:11px; font-size:110%; color: #fff; background-color: #e61109; border-color: #e61109"),
-          br()
-        ),
-        column(
-          width = 2,
-          align = "center",
           disabled(downloadButton("downloadReport", strong("Download report"),
-                                  style = "padding:11px; font-size:110%; color: #fff; background-color: #e61109; border-color: #e61109")),
-          br()
-        ),
-        column(4)
-      )
+                                  style = "padding:11px; font-size:110%; color: #fff; background-color: #e61109; border-color: #e61109"))
+        )
+      ),
+      br()
     )
   })
   
@@ -3721,7 +3712,7 @@ server <- function(input, output, session) {
   observeEvent(input$copyCitation, {
     clipr::write_clip("CARTmath. Version 1.0. Petrópolis: Paixão, E.A.;  Naozuka, G.T.; Valli, A.M.P., 
                               Barros, L.R.C.; Almeida, R.C., 2020. Available at: https://github.com/tmglncc/CARTmath, 2020. 
-                              Access in: february 28th, 2020. doi: http://doi.org/10.5281/zenodo.4450377")
+                              Access in: february 28th, 2020. doi: http://doi.org/10.5281/zenodo.4450376")
     showNotification(strong("Citation copied to clipboard."), 
                      duration = 5, 
                      closeButton = TRUE,

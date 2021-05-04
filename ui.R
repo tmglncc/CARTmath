@@ -22,7 +22,7 @@ ui <- dashboardPage(
                headerText = h5(strong("Cite as:"), br(), br(), tags$div(title = "Click here to copy to clipboard",
                actionLink("copyCitation", HTML("CAR<strong>T</strong><em>math</em>. Version 1.0. Petrópolis: Paixão, E.A.;  Naozuka, G.T.; Valli, A.M.P., 
                               Barros, L.R.C.; Almeida, R.C., 2020. Available at: https://github.com/tmglncc/CARTmath, 2020. 
-                              Access in: february 28th, 2020. doi: http://doi.org/10.5281/zenodo.4450377"))
+                              Access in: february 28th, 2020. doi: http://doi.org/10.5281/zenodo.4450376"))
               )),
                
                #Defining commands to export citation file (RIS, BibTex, and text formats)

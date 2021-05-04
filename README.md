@@ -27,7 +27,9 @@ $ cd CARTmath/
 > install.packages("htmltools")
 > install.packages("bsplus")
 > install.packages("plotly")
-> install.packages("shinydashboardPlus")
+> install.packages("devtools")
+> require("devtools")
+> install_version("shinydashboardPlus", version = "0.7.5")
 > install.packages("numbers")
 > install.packages("shinyjs")
 > install.packages("DT")
@@ -62,4 +64,4 @@ You can run directly in RStudio by clicking on **Run App** button.
 
 ## Cite as
                               
-CAR**T***math*. Version 1.0. Petrópolis: Paixão, E.A.; Naozuka, G.T.; Valli, A.M.P.; Barros, L.R.C.; Almeida, R.C., 2020. Available at: [https://github.com/tmglncc/CARTmath](https://github.com/tmglncc/CARTmath), 2020. Access in: february 28th, 2020. doi: [http://doi.org/10.5281/zenodo.4450377](http://doi.org/10.5281/zenodo.4450377)
+CAR**T***math*. Version 1.0. Petrópolis: Paixão, E.A.; Naozuka, G.T.; Valli, A.M.P.; Barros, L.R.C.; Almeida, R.C., 2020. Available at: [https://github.com/tmglncc/CARTmath](https://github.com/tmglncc/CARTmath), 2020. Access in: february 28th, 2020. doi: [http://doi.org/10.5281/zenodo.4450376](http://doi.org/10.5281/zenodo.4450376)

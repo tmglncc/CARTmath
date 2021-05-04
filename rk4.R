@@ -17,8 +17,8 @@
 #     y        Solution of y(t) at t + dt
 #--------------------------------------------------------------------------
 rk_4ordem <- function(param, t, dt, Y) {
-  threshold <- 1.0e-10 # When any cell population reaches cell numbers below 1.0e-10, it is treated as extinct by assigning the zero value 
-                       # directly to the corresponding variable
+  threshold <- 1.0e-6 # When any cell population reaches cell numbers below 1.0e-6, it is treated as extinct by assigning the zero value 
+                      # directly to the corresponding variable
   
   k1 = deriv(param, t, Y)
   k2 = deriv(param, t + 0.5 * dt, Y + 0.5 * dt * k1)
