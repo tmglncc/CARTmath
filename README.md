@@ -1,4 +1,4 @@
-# CARTmath
+# CAR**T***math*
 
 It simulates a three-cell mathematical model to describe tumor response to CAR T cell immunotherapy in immunodeficient mouse models.
 
@@ -64,4 +64,4 @@ You can run directly in RStudio by clicking on **Run App** button.
 
 ## Cite as
                               
-CAR**T***math*. Version 1.0. Petrópolis: Paixão, E.A.; Naozuka, G.T.; Valli, A.M.P.; Barros, L.R.C.; Almeida, R.C., 2020. Available at: [https://github.com/tmglncc/CARTmath](https://github.com/tmglncc/CARTmath), 2020. Access in: february 28th, 2020. doi: [http://doi.org/10.5281/zenodo.4450376](http://doi.org/10.5281/zenodo.4450376)
+Paixão, E.A.; Naozuka, G.T.; Valli, A.M.P., Barros, L.R.C.; Almeida, R.C. CAR**T***math*, 2020. Version 1.0. Available online: [https://github.com/tmglncc/CARTmath](https://github.com/tmglncc/CARTmath) (accessed on 01 June 2021), doi: [10.5281/zenodo.4450376](http://doi.org/10.5281/zenodo.4450376).
