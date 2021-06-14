@@ -3710,9 +3710,10 @@ server <- function(input, output, session) {
   )
   
   observeEvent(input$copyCitation, {
-    clipr::write_clip("CARTmath. Version 1.0. Petrópolis: Paixão, E.A.;  Naozuka, G.T.; Valli, A.M.P., 
-                              Barros, L.R.C.; Almeida, R.C., 2020. Available at: https://github.com/tmglncc/CARTmath, 2020. 
-                              Access in: february 28th, 2020. doi: http://doi.org/10.5281/zenodo.4450376")
+    clipr::write_clip("Paixão, E.A.; Naozuka, G.T.; Valli, A.M.P., Barros, L.R.C.; Almeida, R.C. 
+                                               CAR<strong>T</strong><em>math</em>, 2020. Version 1.0. 
+                                               Available online: https://github.com/tmglncc/CARTmath (accessed on 01 June 2021), 
+                                               doi: 10.5281/zenodo.4450376.")
     showNotification(strong("Citation copied to clipboard."), 
                      duration = 5, 
                      closeButton = TRUE,

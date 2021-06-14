@@ -1,8 +1,8 @@
 ---
 title: |
-  ![](cart_black.png){width=1.90in}^[CAR **T** *math*. Version 1.0. Petrópolis: Paixão, E.A.;  Naozuka, G.T.; Valli, A.M.P., 
-                              Barros, L.R.C.; Almeida, R.C., 2020. Available at: https://github.com/tmglncc/CARTmath, 2020. 
-                              Access in: february 28th, 2020. doi: http://doi.org/10.5281/zenodo.4450376"]  
+  ![](cart_black.png){width=1.90in}^[Paixão, E.A.;  Naozuka, G.T.; Valli, A.M.P., 
+                              Barros, L.R.C.; Almeida, R.C. CAR**T***math*, 2020. Version 1.0. Available online: https://github.com/tmglncc/CARTmath (accessed on 01 June 2021), 
+                              doi: 10.5281/zenodo.4450376.]  
   **Report**
 header-includes: 
   \usepackage{xcolor}

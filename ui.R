@@ -20,9 +20,10 @@ ui <- dashboardPage(
     class = "dropdown"),
   dropdownMenu(type = "messages", icon = icon("quote-right"), badgeStatus = NULL,
                headerText = h5(strong("Cite as:"), br(), br(), tags$div(title = "Click here to copy to clipboard",
-               actionLink("copyCitation", HTML("CAR<strong>T</strong><em>math</em>. Version 1.0. Petrópolis: Paixão, E.A.;  Naozuka, G.T.; Valli, A.M.P., 
-                              Barros, L.R.C.; Almeida, R.C., 2020. Available at: https://github.com/tmglncc/CARTmath, 2020. 
-                              Access in: february 28th, 2020. doi: http://doi.org/10.5281/zenodo.4450376"))
+               actionLink("copyCitation", HTML("Paixão, E.A.; Naozuka, G.T.; Valli, A.M.P., Barros, L.R.C.; Almeida, R.C. 
+                                               CAR<strong>T</strong><em>math</em>, 2020. Version 1.0. 
+                                               Available online: https://github.com/tmglncc/CARTmath (accessed on 01 June 2021), 
+                                               doi: 10.5281/zenodo.4450376."))
               )),
                
                #Defining commands to export citation file (RIS, BibTex, and text formats)
@@ -89,17 +90,17 @@ ui <- dashboardPage(
                       inputId = "dataset",
                       label = "Dataset",
                       choices = c(
-                        "CAR-T Immunotherapy in HDLM-2 tumor (RODRIGUES et al., 2020 - Figure 3a)" =
+                        "CAR-T Immunotherapy in HDLM-2 tumor (BARROS et al., 2021 - Figure 4a)" =
                           "ex1",
-                        "CAR-T Immunotherapy with Challenge in HDLM-2 tumor (RODRIGUES et al., 2020 - Figure 2a)" =
+                        "CAR-T Immunotherapy with Challenge in HDLM-2 tumor (BARROS et al., 2021 - Figure 3a)" =
                           "ex2",
-                        "CAR-T Immunotherapy with Fractionated Doses in HDLM-2 tumor (RODRIGUES et al., 2020 - Figure 3d)" =
+                        "CAR-T Immunotherapy with Fractionated Doses in HDLM-2 tumor (BARROS et al., 2021 - Figure 4d)" =
                           "ex3",
-                        "CAR-T Immunotherapy in RAJI tumor (RORIGUES et al., 2020 - Figure 2b)" =
+                        "CAR-T Immunotherapy in RAJI tumor (BARROS et al., 2021 - Figure 3b)" =
                           "ex4",
-                        "CAR-T Immunotherapy in RAJI-IDO+ tumor (RODRIGUES et al., 2020 - Figure 5a)" =
+                        "CAR-T Immunotherapy in RAJI-IDO+ tumor (BARROS et al., 2020 - Figure 3c)" =
                           "ex5",
-                        "CAR-T Immunotherapy with IDO inhibitor (1-MT) in RAJI-IDO+ tumor (RODRIGUES et al., 2020 - Figure 5b)" =
+                        "CAR-T Immunotherapy with IDO inhibitor (1-MT) in RAJI-IDO+ tumor (BARROS et al., 2020 - Figure 3d)" =
                           "ex6",
                         "Custom slow growth (HDLM-2)" =
                           "ex7",
@@ -748,34 +749,22 @@ ui <- dashboardPage(
                     ),
                     br(),
                     br(),
+                    br(),
+                    br(),
                     h3(
-                      "This mathematical model is described in the following publications:",
+                      "This mathematical model is described in the following publication:",
                       br(),
                       ex1_url <-
                         a(
                           h3(
-                            "BARROS, L. R. C.; RODRIGUES, B. J.; ALMEIDA, R. C. CAR-T cell goes on a mathematical model. Journal of Cellular Immunology, 2(1):31-37, 2020. ISSN: 2689-2812."
+                            "BARROS, L.R.C.; PAIXAO, E.A.; VALLI, A.M.P.; NAOZUKA, G.T.; FASSONI, A.C.; ALMEIDA, R. C. CARTmath - A Mathematical Model of CAR-T Immunotherapy in Preclinical Studies of Hematological Cancers. Cancers, 13(12), 2021. doi: 10.3390/cancers13122941."
                           ),
-                          href = "https://www.scientificarchives.com/article/cart-cell-goes-on-a-mathematical-model",
-                          target = "_blank"
-                        ),
-                      ex2_url <-
-                        a(
-                          h3(
-                            "RODRIGUES, B. J. Modelagem matem\u00E1tica da imunoterapia com c\u00E9lulas CAR T, M.Sc. Dissertation, 2019. (In Portuguese)"
-                          ),
-                          href = "https://drive.google.com/file/d/1Mrp28fw-FZqoBlMGTuYf2srTFC-qfE9a/view",
-                          target = "_blank"
-                        ),
-                      ex2_url <-
-                        a(
-                          h3(
-                            "RODRIGUES, B. J.; BARROS, L. R. C.; ALMEIDA, R. C. Three-compartment model of CAR T-cell immunotherapy. bioRxiv, 2020. doi: 10.1101/779793."
-                          ),
-                          href = "https://www.biorxiv.org/content/10.1101/779793v2",
+                          href = "https://www.mdpi.com/2072-6694/13/12/2941",
                           target = "_blank"
                         ),
                     ),
+                    br(),
+                    br(),
                     br(),
                     br(),
                     h3(
