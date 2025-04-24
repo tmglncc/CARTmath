@@ -68,4 +68,4 @@ You can run directly in RStudio by clicking on **Run App** button.
 
 Barros, L.R.C.; Paixão, E.A.; Valli, A.M.P.; Naozuka, G.T.; Fassoni, A.C.; Almeida, R.C. CART*math*—A Mathematical Model of CAR-T Immunotherapy in Preclinical Studies of Hematological Cancers. _Cancers_ **2021**, _13_, 2941. [https://doi.org/10.3390/cancers13122941](https://doi.org/10.3390/cancers13122941)
                               
-Paixão, E.A.; Naozuka, G.T.; Valli, A.M.P., Barros, L.R.C.; Almeida, R.C. CAR**T***math*, 2020. Version 1.0. Available online: [https://github.com/tmglncc/CARTmath](https://github.com/tmglncc/CARTmath) (accessed on 01 June 2021), doi: [10.5281/zenodo.4450376](http://doi.org/10.5281/zenodo.4450376).
+Paixão, E.A.; Naozuka, G.T.; Valli, A.M.P., Barros, L.R.C.; Almeida, R.C. CAR**T***math*, 2020. Version 1.0. Available online: [https://github.com/tmglncc/CARTmath](https://github.com/tmglncc/CARTmath) (accessed on 01 June 2021), doi: [10.5281/zenodo.4450376](http://doi.org/10.5281/zenodo.4450376)
